@@ -1,0 +1,22 @@
+RewriteEngine On
+RewriteBase /solisgreenindia_Login/
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Protect sensitive files
+<FilesMatch "\.(env|json|config|sql)$">
+    Deny from all
+</FilesMatch>
+
+# API routing
+RewriteRule ^api/(.*)$ backend/api/$1 [L]
+
+# Clean URLs - Remove .php extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# Redirect to login if accessing root
+RewriteRule ^$ login.php [L]
