@@ -1,0 +1,27 @@
+/* Base URL for images */
+:root {
+    --base-url: '../solisgreenindia_Login/';
+    --primary-color: #4CAF50;
+    --secondary-color: #45a049;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-image: url('../images/background.jpg'); /* Updated path */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+}
+
+/* Rest of your CSS remains the same */
